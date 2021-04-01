@@ -8,7 +8,7 @@ class ExtratoAndList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Expanded(child:  Container(
       decoration: BoxDecoration(
         color: Colors.white,
       ),
@@ -35,6 +35,7 @@ class ExtratoAndList extends StatelessWidget {
           ListTransactions(),
         ],
       )),
+      )
     );
   }
 }
