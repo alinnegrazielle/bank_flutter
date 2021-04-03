@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'list_transactions.dart';
 
-class ExtratoAndList extends StatelessWidget {
-  const ExtratoAndList({
-    Key key,
-  }) : super(key: key);
+class Extrato extends StatelessWidget {
+  final String text;
 
+  Extrato(this.text);
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Expanded(
+        child: Container(
       decoration: BoxDecoration(
         color: Colors.white,
       ),
@@ -32,9 +31,17 @@ class ExtratoAndList extends StatelessWidget {
               ),
             ],
           ),
-          ListTransactions(),
+          Container(
+            height: 200,
+            child: Column(
+              children: <Widget>[
+                Text(text),
+              ],
+            ),
+          ),
+          // ListTransactions(),
         ],
       )),
-    );
+    ));
   }
 }

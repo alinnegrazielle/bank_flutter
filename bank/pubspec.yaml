@@ -62,7 +62,46 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
+  fonts:
+    - family: Futura
+      fonts:
+        - asset: assets/fonts/FuturaMdBT.ttf
+        - asset: assets/fonts/FuturaMdBT-Italic.ttf
+          style: italic
+    - family: FuturaBold
+      fonts:
+        - asset: assets/fonts/FuturaBold.ttf
+    - family: FuturaBoldCondensed
+      fonts:
+        - asset: assets/fonts/FuturaBdCnBT.ttf
+    - family: FuturaBook
+      fonts:
+        - asset: assets/fonts/FuturaBkBT.ttf
+        - asset: assets/fonts/FuturaBkBT-Italic.ttf
+          style: italic
+    - family: FuturaHeavy
+      fonts:
+        - asset: assets/fonts/FuturaHvBT.ttf
+        - asset: assets/fonts/FuturaHvBT-Italic.ttf
+          style: italic
+    - family: FuturaLight
+      fonts:
+        - asset: assets/fonts/FuturaLtBT.ttf
+        - asset: assets/fonts/FuturaLtBT-Italic.ttf
+          style: italic
+    # - family: FuturaLightCondensed
+    #   fonts:
+    #     - asset: assets/fonts/FuturaLtCnBT.ttf
+    - family: FuturaCondensed
+      fonts:
+        - asset: assets/fonts/FuturaMdCnBT.ttf
+    - family: FuturaExtraBlack
+      fonts:
+        - asset: assets/fonts/FuturaXBlkBT.ttf
+    - family: MyFlutterApp
+      fonts:
+        - asset: assets/fonts/MyFlutterApp.ttf
+  # # fonts:
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf

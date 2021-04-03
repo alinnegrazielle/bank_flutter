@@ -1,6 +1,15 @@
 class Transaction {
-  String title;
-  double value;
+  String name = '0';
+  double amount = 0.00;
 
-  Transaction({this.title, this.value});
+  void applyOperation(String operation) {
+    name += operation;
+  }
+
+  // String get value {
+  //   return _value;
+  // }
+//   double value;
+
+  Transaction({this.name, this.amount});
 }
