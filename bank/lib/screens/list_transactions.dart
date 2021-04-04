@@ -1,79 +1,42 @@
 import 'package:flutter/material.dart';
-import 'saques_design.dart';
 import 'depositos_design.dart';
+import 'saques_design.dart';
+import 'package:intl/intl.dart';
+import 'object_transactions.dart';
 
 class ListTransactions extends StatelessWidget {
-  const ListTransactions({
-    Key key,
-  }) : super(key: key);
+  ListTransactions(this._transac);
+
+  List<ObjectTransaction> _transac;
+  final currencyFormatter = NumberFormat('#,##0.00', 'pt_BR');
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Column(
-          children: [
-            Row(
+    return Expanded(
+      child: Container(
+        height: 400,
+        child: ListView.builder(
+          itemCount: _transac.length,
+          itemBuilder: (context, index) {
+            return Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(
-                    bottom: 10,
-                  ),
-                  child: Deposito(),
+                  padding: const EdgeInsets.only(bottom: 10, top: 0),
+                  child: _transac[(_transac.length - 1) - index].isDeposito
+                      ? Deposito()
+                      : Saque(),
                 ),
-                ValorDeposito(valor: 200.09),
+                _transac[(_transac.length - 1) - index].isDeposito
+                    ? ValorDeposito(
+                        valor: _transac[(_transac.length - 1) - index].valor)
+                    : ValorSaque(
+                        valor: _transac[(_transac.length - 1) - index].valor),
               ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(
-                    bottom: 10,
-                  ),
-                  child: Deposito(),
-                ),
-                ValorDeposito(valor: 19.20),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(
-                    bottom: 10,
-                  ),
-                  child: Saque(),
-                ),
-                ValorSaque(valor: 50),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(
-                    bottom: 10,
-                  ),
-                  child: Saque(),
-                ),
-                ValorSaque(valor: 15.92),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(
-                    bottom: 10,
-                  ),
-                  child: Deposito(),
-                ),
-                ValorDeposito(valor: 230.23),
-              ],
-            ),
-          ],
-        ));
+            );
+          },
+        ),
+      ),
+    );
   }
 }

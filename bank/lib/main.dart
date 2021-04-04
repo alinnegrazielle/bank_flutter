@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'screens/top.dart';
-import 'screens/extrato_and_list.dart';
+import 'screens/home_page_screen.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,43 +14,19 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primaryColor: Colors.teal,
+        accentColor: Color(0xFFA3FCBB),
         fontFamily: 'Futura',
-      ),
-      home: HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        //backgroundColor: Colors.grey.shade300,
-        backgroundColor: Colors.white,
-        extendBodyBehindAppBar: true,
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          title: Text(
-            'BANCO EXEMPLO S/A',
-            style: TextStyle(
-              fontFamily: 'Futura',
-              color: Colors.white,
-              fontSize: 13,
-              letterSpacing: 2,
-            ),
-          ),
-          centerTitle: true,
-        ),
-        body: Column(
-          //toda a tela
-          children: [
-            Top(),
-            ExtratoAndList(),
-          ],
+        textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+              backgroundColor: Colors.white,
+              primary: Color(0xFF0AACA0),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(35.0),
+              ),
+              padding: EdgeInsets.only(top: 3, left: 20, right: 20, bottom: 3)),
         ),
       ),
+      home: HomePageScreen(),
     );
   }
 }

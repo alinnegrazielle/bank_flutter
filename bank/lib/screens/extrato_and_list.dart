@@ -1,20 +1,25 @@
 import 'package:flutter/material.dart';
+
 import 'list_transactions.dart';
+import 'buttons.dart';
+import 'object_transactions.dart';
+
 
 class ExtratoAndList extends StatelessWidget {
-  const ExtratoAndList({
-    Key key,
-  }) : super(key: key);
+  ExtratoAndList(this._transac, this.addTransaction);
+
+  List<ObjectTransaction> _transac;
+  final CallbackTransaction addTransaction;
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(child:  Container(
+    return Container(
       decoration: BoxDecoration(
         color: Colors.white,
       ),
       width: double.infinity,
       padding: EdgeInsets.all(25.0),
-      height: (315),
+      height: (380),
       child: (Column(
         children: <Widget>[
           Row(
@@ -32,10 +37,13 @@ class ExtratoAndList extends StatelessWidget {
               ),
             ],
           ),
-          ListTransactions(),
+          ListTransactions(_transac),
+          Container(
+            padding: EdgeInsets.only(top: 15),
+            child: Buttons(_transac, addTransaction),
+          )
         ],
       )),
-      )
     );
   }
 }

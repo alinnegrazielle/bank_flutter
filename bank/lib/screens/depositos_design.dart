@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'app_icons.dart';
 import 'package:intl/intl.dart';
 
-class Deposito extends StatelessWidget {
+class Deposito extends StatefulWidget {
   const Deposito({
     Key key,
   }) : super(key: key);
 
   @override
+  _DepositoState createState() => _DepositoState();
+}
+
+class _DepositoState extends State<Deposito> {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -63,7 +67,7 @@ class ValorDeposito extends StatelessWidget {
       children: [
         Row(
           children: [
-            Icon(Icons.add),
+            Icon(Icons.add, color: Color(0xFF454545)),
             Text(
               currencyFormatter.format(valor),
               style: TextStyle(

@@ -2,11 +2,16 @@ import 'package:flutter/material.dart';
 import 'app_icons.dart';
 import 'package:intl/intl.dart';
 
-class Saque extends StatelessWidget {
+class Saque extends StatefulWidget {
   const Saque({
     Key key,
   }) : super(key: key);
 
+  @override
+  _SaqueState createState() => _SaqueState();
+}
+
+class _SaqueState extends State<Saque> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -63,7 +68,7 @@ class ValorSaque extends StatelessWidget {
       children: [
         Row(
           children: [
-            Icon(Icons.remove),
+            Icon(Icons.remove, color: Color(0xFF454545)),
             Text(
               currencyFormatter.format(valor),
               style: TextStyle(
