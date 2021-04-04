@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'transac_intializer.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+import 'buttons.dart';
 
 import 'top.dart';
 import 'extrato_and_list.dart';
@@ -12,7 +13,7 @@ class HomePageScreen extends StatefulWidget {
 }
 
 class _HomePageScreenState extends State<HomePageScreen> {
-  List<ObjectTransaction> _transac = <ObjectTransaction>[a];
+  List<ObjectTransaction> _transac = <ObjectTransaction>[];
 
   double saldototal = 0;
 
@@ -49,11 +50,16 @@ class _HomePageScreenState extends State<HomePageScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size; 
+
     return SafeArea(
       child: Scaffold(
         //backgroundColor: Colors.grey.shade300,
         backgroundColor: Colors.white,
         extendBodyBehindAppBar: true,
+        bottomNavigationBar: SizedBox(height: 60,
+          child: Buttons(_transac, addTransaction)
+        ),
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
@@ -68,14 +74,14 @@ class _HomePageScreenState extends State<HomePageScreen> {
           ),
           centerTitle: true,
         ),
-        body: Column(
+        body: SizedBox(height: size.height,child: Column(
           //toda a tela
-          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Top(saldototal),
-            ExtratoAndList(_transac, addTransaction),
-          ],
-        ),
+            children: [
+              Top(saldototal),
+              Expanded(child: ExtratoAndList(_transac, addTransaction) ,)
+            ],
+          ),
+        ), 
       ),
     );
   }

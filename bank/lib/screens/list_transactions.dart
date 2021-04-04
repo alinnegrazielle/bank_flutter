@@ -14,7 +14,6 @@ class ListTransactions extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
-        height: 400,
         child: ListView.builder(
           itemCount: _transac.length,
           itemBuilder: (context, index) {

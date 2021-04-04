@@ -19,8 +19,8 @@ class ExtratoAndList extends StatelessWidget {
       ),
       width: double.infinity,
       padding: EdgeInsets.all(25.0),
-      height: (380),
       child: (Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Row(
             children: [
@@ -38,10 +38,6 @@ class ExtratoAndList extends StatelessWidget {
             ],
           ),
           ListTransactions(_transac),
-          Container(
-            padding: EdgeInsets.only(top: 15),
-            child: Buttons(_transac, addTransaction),
-          )
         ],
       )),
     );
